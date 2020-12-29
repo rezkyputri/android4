@@ -63,6 +63,12 @@
                 android:minLines="5"
                 android:gravity="top|left"
                 android:hint="Keterangan"/>
+            <EditText
+                android:id="@+id/edit_tanggal"
+                android:focusable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tanggal"/>
 
 
         </LinearLayout>

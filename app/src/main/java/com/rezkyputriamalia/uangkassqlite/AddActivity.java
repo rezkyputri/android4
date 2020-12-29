@@ -15,13 +15,13 @@ import com.rezkyputriamalia.uangkassqlite.helper.SqliteHelper;
 
 public class AddActivity extends AppCompatActivity {
 
-    RadioGroup radio_status;
-    EditText edit_jumlah, edit_keterangan;
-    Button btn_simpan;
-    RippleView rip_simpan;
+    RadioGroup      radio_status;
+    EditText        edit_jumlah, edit_keterangan;
+    Button          btn_simpan;
+    RippleView      rip_simpan;
 
-    String status;
-    SqliteHelper sqliteHelper;
+    String          status;
+    SqliteHelper    sqliteHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

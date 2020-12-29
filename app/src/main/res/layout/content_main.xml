@@ -46,14 +46,14 @@
                 android:textSize="16dp"
                 android:layout_below="@id/text_masuk"/>
 
-            <view
+            <View
                 android:id="@+id/view_garis"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_below="@id/text_keluar"
-                android:background="#999" />
+                android:background="#999"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,6 +70,15 @@
                 android:layout_below="@id/view_garis"
                 android:text="40.000"
                 android:textSize="16dp"/>
+            <TextView
+                android:id="@+id/text_filter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_total"
+                android:textSize="10dp"
+                android:text="SEMUA"
+                android:textAlignment="center"
+                android:visibility="gone"/>
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
