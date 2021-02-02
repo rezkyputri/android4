@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
         query_kas       = "";
         query_total     = "";
         filter          = false;
-        sqliteHelper    = new SqliteHelper(this);
+        sqliteHelper = new SqliteHelper(this);
+
 
         text_filter     = (TextView) findViewById(R.id.text_filter);
         text_masuk      = (TextView) findViewById(R.id.text_masuk);
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 query_total = "SELECT SUM(jumlah) AS total," +
                         "(SELECT SUM(jumlah) FROM transaksi WHERE status = 'MASUK') AS masuk," +
                         "(SELECT SUM(jumlah) FROM transaksi WHERE status = 'KELUAR') AS keluar," +
-                        " FROM transaksi";
+                        "FROM transaksi";
                 KasAdapter();
             }
         });
@@ -224,19 +225,18 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         query_kas   = "SELECT *, strftime('%d/%m/%Y', tanggal) AS tgl FROM transaksi ORDER BY transaksi_id DESC";
-        query_total = "SELECT SUM(jumlah) AS total," +
+        query_total = "SELECT SUM(jumlah) AS total, " +
                 "(SELECT SUM(jumlah) FROM transaksi WHERE status = 'MASUK') AS masuk," +
                 "(SELECT SUM(jumlah) FROM transaksi WHERE status = 'KELUAR') AS keluar" +
                 " FROM transaksi";
         if(filter){
-            query_kas = "SELECT *, strftime('%d/%m/%Y', tanggal) AS tgl FROM transaksi" +
-                    "WHERE (tanggal >= '"+ tgl_dari + "') AND (tanggal <= '"+ tgl_ke +"')" +
-                    " ORDER BY transaksi_id DESC";
+            query_kas = "SELECT *, strftime('%d/%m/%Y', tanggal) AS tgl FROM transaksi " +
+                    "WHERE (tanggal >= '"+ tgl_dari + "') AND (tanggal <= '"+ tgl_ke +"') ORDER BY transaksi_id ASC";
 
-            query_total = "SELECT SUM(jumlah) AS total," +
-                    "(SELECT SUM(jumlah) FROM transaksi WHERE status = 'MASUK' AND (tanggal >= '"+ tgl_dari +"') AND (tanggal <= '"+ tgl_ke +"'))," +
-                    "(SELECT SUM(jumlah) FROM transaksi WHERE status = 'KELUAR' AND (tanggal >= '"+ tgl_dari +"') AND (tanggal <= '"+ tgl_ke +"'))" +
-                    "FROM transaksi" +
+            query_total = "SELECT SUM(jumlah) AS total, " +
+                    "(SELECT SUM(jumlah) FROM transaksi WHERE status = 'MASUK' AND (tanggal >= '"+ tgl_dari +"') AND (tanggal <= '"+ tgl_ke +"') ), " +
+                    "(SELECT SUM(jumlah) FROM transaksi WHERE status = 'KELUAR' AND (tanggal >= '"+ tgl_dari +"') AND (tanggal <= '"+ tgl_ke +"')) " +
+                    "FROM transaksi " +
                     "WHERE (tanggal >= '"+ tgl_dari +"') AND (tanggal <= '"+ tgl_ke +"')";
         }
         KasAdapter();
