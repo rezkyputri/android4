@@ -47,7 +47,7 @@ public class FilterActivity extends AppCompatActivity {
                   M.tgl_dari = year + "-" + numberFormat.format(month_of_year + 1)  + "-" +
                           numberFormat.format(day_of_month);
                   edit_dari.setText(numberFormat.format(day_of_month) + "/" +
-                          numberFormat.format(month_of_year + 1)+
+                          numberFormat.format(month_of_year + 1) +
                           "/" + year);
                }
             }, CurrentDate.year, CurrentDate.month, CurrentDate.day);
@@ -62,10 +62,10 @@ public class FilterActivity extends AppCompatActivity {
                @Override
                public void onDateSet(DatePicker view, int year, int month_of_year, int day_of_month) {
                   NumberFormat numberFormat = new DecimalFormat("00");
-                  M.tgl_dari = year + "-" + numberFormat.format(month_of_year + 1)  + "-" +
+                  M.tgl_ke = year + "-" + numberFormat.format(month_of_year + 1)  + "-" +
                           numberFormat.format(day_of_month);
                   edit_ke.setText(numberFormat.format(day_of_month) + "/" +
-                          numberFormat.format(month_of_year + 1)+
+                          numberFormat.format(month_of_year + 1) +
                           "/" + year);
                }
             }, CurrentDate.year, CurrentDate.month, CurrentDate.day);
