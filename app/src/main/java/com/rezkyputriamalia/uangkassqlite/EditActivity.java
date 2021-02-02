@@ -94,10 +94,10 @@ public class EditActivity extends AppCompatActivity {
             public void onClick(View v) {
                 datePickerDialog = new DatePickerDialog(EditActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    public void onDateSet(DatePicker view, int year, int month_of_year, int day_of_month) {
                         NumberFormat numberFormat = new DecimalFormat("00");
-                        tanggal = year + "-" + numberFormat.format((month + 1)) + numberFormat.format(dayOfMonth);
-                        edit_tanggal.setText(numberFormat.format(dayOfMonth) + "/" + numberFormat.format((month + 1)) + "/" + year);
+                        tanggal = year + "-" + numberFormat.format((month_of_year + 1)) + "-" + numberFormat.format(day_of_month);
+                        edit_tanggal.setText(numberFormat.format(day_of_month) + "/" + numberFormat.format((month_of_year + 1)) + "/" + year);
                     }
                 }, CurrentDate.year, CurrentDate.month, CurrentDate.day);
                 datePickerDialog.show();
