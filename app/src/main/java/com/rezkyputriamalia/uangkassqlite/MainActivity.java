@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_filter) {
+            startActivity(new Intent(MainActivity.this, FilterActivity.class));
             return true;
         }
 
